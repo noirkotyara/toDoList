@@ -1,0 +1,16 @@
+.header{
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    text-align: center;
+  
+}
+.logoName{
+    color: white;
+}
+
+.login{
+    float: right;
+    margin: 10px;
+    color: white;
+}
