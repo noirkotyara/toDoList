@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/toDoList/static/css/main.c35405d1.chunk.css",
+    "main.js": "/toDoList/static/js/main.e4dd9348.chunk.js",
+    "main.js.map": "/toDoList/static/js/main.e4dd9348.chunk.js.map",
+    "runtime-main.js": "/toDoList/static/js/runtime-main.582dc966.js",
+    "runtime-main.js.map": "/toDoList/static/js/runtime-main.582dc966.js.map",
+    "static/js/2.4e9d9fb1.chunk.js": "/toDoList/static/js/2.4e9d9fb1.chunk.js",
+    "static/js/2.4e9d9fb1.chunk.js.map": "/toDoList/static/js/2.4e9d9fb1.chunk.js.map",
+    "static/js/3.b80150b8.chunk.js": "/toDoList/static/js/3.b80150b8.chunk.js",
+    "static/js/3.b80150b8.chunk.js.map": "/toDoList/static/js/3.b80150b8.chunk.js.map",
+    "index.html": "/toDoList/index.html",
+    "static/css/main.c35405d1.chunk.css.map": "/toDoList/static/css/main.c35405d1.chunk.css.map",
+    "static/js/2.4e9d9fb1.chunk.js.LICENSE.txt": "/toDoList/static/js/2.4e9d9fb1.chunk.js.LICENSE.txt",
+    "static/media/preloader.9139a1f3.svg": "/toDoList/static/media/preloader.9139a1f3.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.582dc966.js",
+    "static/js/2.4e9d9fb1.chunk.js",
+    "static/css/main.c35405d1.chunk.css",
+    "static/js/main.e4dd9348.chunk.js"
+  ]
+}
