@@ -5,15 +5,23 @@
     text-align: center;
   
 }
-.logoName{
-    color: white;
-   
+.logoName{ 
+    color: rgba(255, 255, 255, 0.541);
+    font-family:var(--logo-font);
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.logoName:hover{
+   color: white;
+    text-shadow: 0 14px 28px rgba(252, 252, 252, 0.25), 0 10px 10px rgba(255, 255, 255, 0.22);
 }
 
 .login{
     float: right;
     margin: 10px;
     color: white;
+    display: none;
 }
 
 .preloader{

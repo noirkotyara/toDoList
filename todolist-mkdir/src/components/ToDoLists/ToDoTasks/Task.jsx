@@ -1,5 +1,6 @@
 import style from './Tasks.module.css';
 import React, { useEffect, useState } from 'react';
+import Description from './Description';
 
 const Task = React.memo(props => {
 
@@ -7,6 +8,8 @@ const Task = React.memo(props => {
 
     let [editMode, changeEditMode] = useState(false);
     let [TaskText, changeTaskText] = useState('');
+    let [choosedTask, changeChoosedTask] = useState('');
+    
 
     let deleteTask = (taskId) => {
         props.deleteTask(props.id, taskId);
@@ -16,37 +19,50 @@ const Task = React.memo(props => {
         changeTaskText(text);
     } 
 
-    let setStatusModeTrue = (text) => {
+    let setStatusModeTrue = (text, taskId) => {
+        changeChoosedTask(taskId)
         changeTaskText(text);
         changeEditMode(!editMode);
     }
 
-    let setStatusModeFalse = (taskId) => {
+    let setStatusModeFalse = (task) => {
         changeEditMode(!editMode);
-        //Thunk
-        props.updateTask(props.id, taskId, TaskText);
+        props.updateTask(props.id, task.id, {...task, title:TaskText});
     }
 
     let changeOrderTasks = (taskId, putAfterItemId) => {
         props.reoderTask(props.id, taskId, putAfterItemId);
-        // todolistId = props.id; taskId = task.id; putAfterItemId = array[index+-1/0].id
+    }
+
+    let changeCheckBox = (bool, task) => {
+        let intBool = Number(bool);
+        props.updateTask(props.id, task.id, {...task, status: intBool });
     }
 
     let taskArray = props.tasks.map((task, index, array) => {
         if (task.todoListId === props.id) {
+            let date = new Date(task.addedDate);
             return <div key={task.id} className={style.taskItem}>
                 <div>
-                    {editMode 
-                    ? <input autoFocus={true} onBlur={() => setStatusModeFalse(task.id)} onChange={(e) => setTaskText(e.currentTarget.value)} type="text" value={TaskText}/>
-                    : <span onDoubleClick={() => setStatusModeTrue(task.title)}>{task.title}</span>
+                    {(editMode && choosedTask === task.id)
+                    ? <input autoFocus={true} onBlur={() => setStatusModeFalse(task)} onChange={(e) => setTaskText(e.currentTarget.value)} type="text" value={TaskText}/>
+                    : <span onDoubleClick={() => setStatusModeTrue(task.title, task.id)}>{task.title}</span>
                     }
-                    <span>
+                     <span onClick={() => deleteTask(task.id)} className={style.delete}>X</span>  
+                     <input checked={task.status} onChange={(e) => changeCheckBox(e.currentTarget.checked,task)} className={style.complete} type='checkbox'></input>
+                <div>
+                    <Description 
+                                task={task}
+                                taskId = {task.id}
+                                updateTask={props.updateTask}
+                                id={props.id}/>
+                </div>
+                <div className={style.date}>{date.toDateString() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()}</div>
+                    <div>
                         {index < array.length-1 && <input onClick={() => changeOrderTasks(array[index].id, array[index+1].id)} type="button" value='-'/> }
                         {index > 0 && <input onClick={() => changeOrderTasks(array[index-1].id, array[index].id)} type="button" value='+'/> }
-                    </span>
-                    <span onClick={() => deleteTask(task.id)} className={style.delete}>X</span>    
+                    </div> 
                 </div>
-               
             </div>
         }
     });

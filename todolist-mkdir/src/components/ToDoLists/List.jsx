@@ -45,13 +45,7 @@ const List = (props) => {
             </div>
             <div className={style.tasks}>
                 <div>
-                    <Tasks postTasks={props.postTasks}
-                    deleteTask = {props.deleteTask} 
-                    getTasks={props.getTasks} 
-                    id={list.id}
-                    reoderTask = {props.reoderTask}
-                    updateTask = {props.updateTask}
-                    tasks={props.tasks}/>
+                    <Tasks {...props}id={list.id} />
                 </div>
                 
             </div>

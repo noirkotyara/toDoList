@@ -24,12 +24,12 @@ const Lists = React.memo(props => {
         
         <div className={style.newTitle}>
             <span className={style.textTitle}>
-                Enter new title
+                Create new List
             </span>
             
             <div>
-                <textarea value={newTitle} onChange={(e) => onTitleChangeText(e.currentTarget.value)} cols="30"/>
-                <input onClick={addTitle} type="button" value="Create" />
+                <textarea  className={style.createTitleTextArea} value={newTitle} onChange={(e) => onTitleChangeText(e.currentTarget.value)} cols="25" rows='1'/>
+                <input className={style.createTitleBut} onClick={addTitle} type="button" value="Create" />
             </div>
 
         </div>

@@ -8,4 +8,20 @@
 .delete{
     float: right;
     cursor: pointer;
+    
+}
+.complete{
+    float: left;
+}
+.date{
+    font-size: smaller;
+    float: right;
+}
+
+.viewTasks img{
+    width: 30px;
+   
+}
+.viewTasks img:hover{
+    width: 34px;
 }

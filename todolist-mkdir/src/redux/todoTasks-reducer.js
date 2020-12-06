@@ -82,13 +82,14 @@ const updateTask = (taskId, item) => ({ type: UPDATE_TASK, taskId, item})
 const reorderTask = (taskId) => ({type: REORDER_TASK ,taskId })
 
 export const getTasksThunk = (todolistId) => async (dispatch) => {
+    
     let response = await tasksAPI.getTasks(todolistId);
     dispatch(getTasks(response.items));
 }
 
 export const postTasksThunk = (todolistId, title) => async (dispatch) => {
     let response = await tasksAPI.postTasks(todolistId, title);
-    (response.resultCode === 0) && dispatch(postTasks(response.data.item));
+    (response.resultCode === 0) && dispatch(postTasks({...response.data.item, description: 'Description'}));
 }
 
 export const deleteTaskThunk = (todolistId, taskId) => async (dispatch) => {
@@ -97,19 +98,16 @@ export const deleteTaskThunk = (todolistId, taskId) => async (dispatch) => {
 }
 
 export const updateTaskThunk =
-    (todolistId, taskId, title,
-        description = 'no desc', completed = false,
-        status = 0, priority = 1, startDate = '2020-12-06T13:06:41.327',
-        deadline = '2020-12-06T13:06:41.327') => async (dispatch) => {
-            let updatedTaskObject = { title, description, completed, status, priority, startDate, deadline };
+    (todolistId, taskId, updatedTaskObject) => async (dispatch) => {
             let response = await tasksAPI.updateTasks(todolistId, taskId, updatedTaskObject);
             (response.resultCode === 0) && dispatch(updateTask(taskId, response.data.item))
 }
 
-export const reoderTaskThunk = (todolistId, taskId, putAfterItemId) => async (dispatch) => {
+export const reorderTaskThunk = (todolistId, taskId, putAfterItemId) => async (dispatch) => {
     let response = await tasksAPI.reorderTasks(todolistId, taskId, putAfterItemId);
     (response.resultCode === 0) && dispatch(reorderTask(taskId));
 }
 
 export default toDoTasksPage;
+
 

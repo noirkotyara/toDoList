@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+:root{
+  --logo-font: 'Audiowide', cursive;
+  --common-font: 'Poiret One', cursive;
+}
+
 body {
+  background-image: url('./assets/background.jpg') ;
   margin: 0;
+  
+  background-size: 100% ;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { getLists, postList, deleteListThunk, renameTitleThunk, changeOrderThunk } from "../../redux/todo-reducer";
-import { getTasksThunk, postTasksThunk, deleteTaskThunk, updateTaskThunk, reoderTaskThunk } from "../../redux/todoTasks-reducer";
+import { getTasksThunk, postTasksThunk, deleteTaskThunk, updateTaskThunk, reorderTaskThunk } from "../../redux/todoTasks-reducer";
 import Lists from "./Lists";
 
 const mapStateToProps = (state) => {
@@ -22,5 +22,5 @@ export default connect(mapStateToProps, {
     postTasks: postTasksThunk,
     deleteTask: deleteTaskThunk,
     updateTask: updateTaskThunk,
-    reoderTask: reoderTaskThunk
+    reoderTask: reorderTaskThunk
 })(Lists);
