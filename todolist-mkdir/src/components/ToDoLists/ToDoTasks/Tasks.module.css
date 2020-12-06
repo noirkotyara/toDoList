@@ -1,0 +1,11 @@
+.viewTasks{
+    cursor: pointer;
+}
+.taskItem{
+    border: 2px solid blueviolet;
+    margin: 5px;
+}
+.delete{
+    float: right;
+    cursor: pointer;
+}

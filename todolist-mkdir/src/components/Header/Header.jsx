@@ -1,9 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import style from './Header.module.css';
+import Preloader from './../Common/Preloader';
 
-const Header = () => {
+const Header = (props) => {
     return(<>
         <div className={style.header}>
+        <div className={style.preloader}>  {props.isFetching && <Preloader/> }</div>
             <NavLink to='/todolist' className={style.logoName} activeClassName={style.activeNavLink}>
                 MKdir
             </NavLink >  

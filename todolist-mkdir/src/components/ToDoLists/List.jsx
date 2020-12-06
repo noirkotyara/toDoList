@@ -1,5 +1,6 @@
 import style from './Lists.module.css';
 import React, { useEffect, useState } from 'react';
+import Tasks from './ToDoTasks/Tasks';
 
 
 const List = (props) => {
@@ -12,7 +13,6 @@ const List = (props) => {
         props.deleteList(todolistId);
     }
     let updateTitle = () => {
-        //thunk
         props.renameTitle(choosedTitle, newTitleText);
         changeEditMode(false);
         changeNewTitleText('');
@@ -24,10 +24,15 @@ const List = (props) => {
         
     }
     
-    let listsArray = props.lists.map(list => {
+       let changeOrder = (todolistId, putAfterItemId, bool) => {
+        props.changeOrder(todolistId, putAfterItemId, bool);
+    }
+    
+    let listsArray = props.lists.map((list, index, array) => {
         let date = new Date(list.addedDate);
         return (<div key={list.id} className={style.listUI}>
             <div className={style.title}>
+
                 <span>
                    {(editMode && list.id === choosedTitle)
                    ? <input onBlur={updateTitle} autoFocus={true} onChange={(e) => changeNewTitleText(e.currentTarget.value)} value={newTitleText}></input>
@@ -40,9 +45,20 @@ const List = (props) => {
             </div>
             <div className={style.tasks}>
                 <div>
-                    Tasks
+                    <Tasks postTasks={props.postTasks}
+                    deleteTask = {props.deleteTask} 
+                    getTasks={props.getTasks} 
+                    id={list.id}
+                    reoderTask = {props.reoderTask}
+                    updateTask = {props.updateTask}
+                    tasks={props.tasks}/>
                 </div>
+                
             </div>
+            <div> 
+                {index < array.length-1 && <input onClick={() => changeOrder(array[index].id, array[index+1].id , false)} type="button" value='-'/> }
+                {index > 0 && <input onClick={() => changeOrder(array[index-1].id, array[index].id, true)} type="button" value='+'/> }
+             </div>
             <div className={style.addedDate}>{date.toDateString()}</div>
         </div>);
     });

@@ -7,10 +7,16 @@
 }
 .logoName{
     color: white;
+   
 }
 
 .login{
     float: right;
     margin: 10px;
     color: white;
+}
+
+.preloader{
+    float: left;
+    
 }

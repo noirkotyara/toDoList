@@ -4,7 +4,6 @@ import List from './List';
 import Preloader from '../Common/Preloader';
 
 const Lists = React.memo(props => {
-
     let [newTitle, changeNewTitle] = useState('');
     
     
@@ -21,13 +20,13 @@ const Lists = React.memo(props => {
         changeNewTitle('');
     }
 
-    return props.isFetching ? <Preloader/>
-    :(<div>
-
+    return <div>
+        
         <div className={style.newTitle}>
             <span className={style.textTitle}>
                 Enter new title
             </span>
+            
             <div>
                 <textarea value={newTitle} onChange={(e) => onTitleChangeText(e.currentTarget.value)} cols="30"/>
                 <input onClick={addTitle} type="button" value="Create" />
@@ -36,10 +35,12 @@ const Lists = React.memo(props => {
         </div>
 
         <div className={style.content}>
-            <List renameTitle={props.renameTitle} deleteList={props.deleteList} lists={props.lists}/>
+            <List 
+            {...props}
+            />
         </div>
 
-    </div>)
+    </div>
 });
 
 export default Lists;

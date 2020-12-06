@@ -51,3 +51,26 @@ export const toDoAPI = {
             //resultCode messages[] data{}
     }
 }
+
+export const tasksAPI = {
+    getTasks(todolistId){
+        return instance.get(`/todo-lists/${todolistId}/tasks`)
+            .then(response => response.data);
+    },
+    postTasks(todolistId, title){
+        return instance.post(`/todo-lists/${todolistId}/tasks`, {title})
+            .then(response => response.data);
+    },
+    deleteTasks(todolistId, taskId){
+        return instance.delete(`/todo-lists/${todolistId}/tasks/${taskId}`)
+            .then(response => response.data);
+    },
+    updateTasks(todolistId, taskId, updateTask){
+        return instance.put(`/todo-lists/${todolistId}/tasks/${taskId}`, updateTask)
+            .then(response => response.data);
+    },
+    reorderTasks(todolistId, taskId, putAfterItemId){
+        return instance.put(`/todo-lists/${todolistId}/tasks/${taskId}/reorder`, {putAfterItemId})
+            .then(response => response.data);
+    }
+}

@@ -3,7 +3,7 @@ import Header from "./Header"
 
 const mapStateToProps = (state) => {
     return{
-        
+        isFetching: state.toDoPage.isFetching
     }
 }
 
