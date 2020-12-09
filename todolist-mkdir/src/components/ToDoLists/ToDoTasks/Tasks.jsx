@@ -1,4 +1,4 @@
-import style from './Tasks.module.css';
+import style from './Tasks.module.scss';
 import React, { useState } from 'react';
 import Task from './Task';
 import arrowDown from './../../../assets/arrowDown.png';

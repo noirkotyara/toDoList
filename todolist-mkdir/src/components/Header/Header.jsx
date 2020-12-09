@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import style from './Header.module.css';
+import style from './Header.module.scss';
 import Preloader from './../Common/Preloader';
 
 const Header = (props) => {

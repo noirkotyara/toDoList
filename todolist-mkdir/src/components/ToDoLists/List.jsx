@@ -1,4 +1,4 @@
-import style from './Lists.module.css';
+import style from './Lists.module.scss';
 import React, { useEffect, useState } from 'react';
 import Tasks from './ToDoTasks/Tasks';
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import style from './Lists.module.css';
 import List from './List';
-import Preloader from '../Common/Preloader';
+import style from './Lists.module.scss';
 
 const Lists = React.memo(props => {
     let [newTitle, changeNewTitle] = useState('');
@@ -29,7 +28,15 @@ const Lists = React.memo(props => {
             
             <div>
                 <textarea  className={style.createTitleTextArea} value={newTitle} onChange={(e) => onTitleChangeText(e.currentTarget.value)} cols="25" rows='1'/>
-                <input className={style.createTitleBut} onClick={addTitle} type="button" value="Create" />
+                <div className={style.buttons}>
+                    <div className={style.container}>
+                        <div className={`${style.btn} ${style.effect01}`}>
+                            <span onClick={addTitle} >Create</span>
+                        </div>
+                    </div>
+                </div>
+                {/* <input className={style.createTitleBut} onClick={addTitle} value="Create" /> */}
+
             </div>
 
         </div>

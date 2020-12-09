@@ -1,4 +1,4 @@
-import style from './Tasks.module.css';
+import style from './Tasks.module.scss';
 import React, { useEffect, useState } from 'react';
 import Description from './Description';
 
